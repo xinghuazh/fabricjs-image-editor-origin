@@ -63,8 +63,52 @@
   fill: var(--accent7);
 }
 
-
 .tool_button.disabled svg {
+  background-color: #aaa;
+  cursor: not-allowed;
+  fill: var(--z3);
+  pointer-events: none;
+}
+
+.ext_button {
+  height: var(--x12);
+  width: var(--x12);
+  cursor: pointer;
+  line-height: 60px;
+  text-align: center;
+  transform: scale(0.8);
+}
+
+.inverted .ext_button svg {
+  fill: var(--z13);
+}
+
+.ext_button:hover {
+  transform: scale(1);
+}
+
+.ext_button:hover svg {
+  fill: var(--z13);
+}
+
+.ext_button.current {
+  transform: scale(1.4);
+}
+
+.ext_button svg {
+  vertical-align: center;
+  fill: var(--z5);
+}
+
+.ext_button.current svg {
+  fill: var(--accent8);
+}
+
+.ext_button.current svg {
+  fill: var(--accent7);
+}
+
+.ext_button.disabled svg {
   background-color: #aaa;
   cursor: not-allowed;
   fill: var(--z3);

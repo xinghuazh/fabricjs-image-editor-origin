@@ -28,6 +28,43 @@
   var imgEditor = new ImageEditor('#editor-container', buttons, []);
   console.log('initialize image editor');
 
+  //
+  function initCollapsiblePanels() {
+    $('.collapsible-panel').each(function () {
+      const $panel = $(this);
+      const $header = $panel.find('.panel-header');
+      const $btn = $panel.find('.collapse-btn');
+      const $content = $panel.find('.panel-content');
+
+      // 保存原始内容高度
+      if (!$content.data('originalHeight')) {
+        $content.data('originalHeight', $content.outerHeight());
+      }
+
+      const toggleCollapse = function (e) {
+        e.stopPropagation();
+        $panel.toggleClass('collapsed');
+
+        if ($panel.hasClass('collapsed')) {
+          $btn.text('+');
+          // 可选：保存当前高度并动画折叠
+          $content.slideUp(200);
+        } else {
+          $btn.text('−');
+          $content.slideDown(200);
+        }
+      };
+
+      $header.on('click', toggleCollapse);
+      $btn.on('click', toggleCollapse);
+    });
+  }
+
+  // 页面加载完成后初始化
+  $(document).ready(function () {
+    initCollapsiblePanels();
+  });
+  
   // let status = imgEditor.getCanvasJSON();
   // imgEditor.setCanvasStatus(status);
 
@@ -53,3 +90,5 @@
 //     document.body.appendChild(browserWarning)
 //   }
 // }
+
+

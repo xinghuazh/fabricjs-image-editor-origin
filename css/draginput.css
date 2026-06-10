@@ -159,15 +159,16 @@
   cursor: -webkit-grab;
   cursor: -moz-grab;
 }
-
 .draginput input[type="checkbox"],
 .draginput input[type="checkbox"]:hover,
 .draginput input[type="checkbox"]:active {
   cursor: pointer;
-} */
+}
+ */
 
-.draginput.checkbox {
+.draginput input[type="checkbox"] {
   cursor: pointer;
+  margin: 5px 5px 5px -10px;
 }
 /* 
 .draginput.active input,
@@ -190,7 +191,7 @@
 .draginput span {
   color: var(--comp15);
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin: 0px 5px 0px 10px;
   /* font: 12px/130% sans-serif;
   color: var(--z8);

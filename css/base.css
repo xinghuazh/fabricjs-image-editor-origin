@@ -133,3 +133,23 @@
   --transition-duration: 200ms;
   --transition:  all var(--transition-duration) ease;
 }
+
+.icon-1x {
+  font-size: 1em;
+}
+
+.icon-2x {
+  font-size: 2em;
+}
+
+.icon-3x {
+  font-size: 3em;
+}
+
+.icon-4x {
+  font-size: 4em;
+}
+
+.icon-5x {
+  font-size: 2em !important;
+}

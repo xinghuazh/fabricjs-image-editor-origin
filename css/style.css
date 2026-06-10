@@ -172,14 +172,13 @@ body {
   font-size: 13px;
 }
 
-#select-panel .text-section .style button,
-#select-panel .alignment-section button,
-#select-panel .object-options button {
+.object-options button {
   padding: 0;
-  width: 32px;
-  height: 32px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  width: 27px;
+  height: 27px;
+  /* background-color: #fff; */
+  /* border: 1px solid #ddd; */
+  padding: 5px;
   text-align: center;
   outline: none;
 }

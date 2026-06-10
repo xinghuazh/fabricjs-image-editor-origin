@@ -113,14 +113,14 @@ input[type=number].tuco {
 input[type=submit],
 input[type=button],
 button {
-  background: var(--accent7);
-  /* color: var(--z15); */
+  /* background: var(--accent7); */
+  color: gray;
   background: transparent;
   border-radius: var(--x1);
-  padding: var(--x2) var(--x4);
+  /* padding: var(--x2) var(--x4); */
   border: none;
-  line-height: 140%;
-  font-size: 16px;
+  /* line-height: 140%;
+  font-size: 16px; */
   font-weight: 550;
   cursor: pointer;
 }

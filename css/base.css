@@ -139,7 +139,10 @@
 }
 
 .icon-2x {
-  font-size: 2em;
+  width: 32px;
+  height: 32px;
+  font-size: 1em;
+  margin: 2px;
 }
 
 .icon-3x {

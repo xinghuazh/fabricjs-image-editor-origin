@@ -73,6 +73,7 @@
   <script src="./lib/utils.js"></script>
   <script src="./lib/zoom.js"></script>
   <script src="./lib/saveInBrowser.js"></script>
+  <script src="./lib/aligning_guidelines.js"></script>
 
 </head>
 
@@ -471,13 +472,12 @@
         <div class="panel-content">
           <label id="tool_angle" class="draginput">
             <span>旋转</span>
-            <input type="number" id="angle" class="attr_changer" data-decimals="0" step="90" min="0" max="270"  
-              title="rotate angle"/>
+            <input type="number" id="angle" class="attr_changer" data-decimals="0" step="90" min="0" max="270"
+              title="rotate angle" />
           </label>
           <label class="draginput">
-            <span>锁定</span>
-
-            <input type="checkbox" id="itemLock" title="rotate angle"> </input>
+            <span for="itemLock">锁定</span>
+            <input type="checkbox" id="itemLock" title="锁定" />
           </label>
         </div>
       </div>
@@ -510,6 +510,107 @@
           </label>
         </div>
         <div class="panel-content " id="tool_position1">
+
+          <div id="font_style0">
+            <button id="bold"><svg width="24" height="24" x="0px" y="0px" viewBox="-70 -70 450 450" xml:space="preserve">
+                <path
+                  d="M218.133,144.853c20.587-14.4,35.2-37.653,35.2-59.52C253.333,37.227,216.107,0,168,0H34.667v298.667h150.187 c44.693,0,79.147-36.267,79.147-80.853C264,185.387,245.547,157.76,218.133,144.853z M98.667,53.333h64c17.707,0,32,14.293,32,32 s-14.293,32-32,32h-64V53.333z M173.333,245.333H98.667v-64h74.667c17.707,0,32,14.293,32,32S191.04,245.333,173.333,245.333z">
+                </path>
+              </svg></button>
+            <button id="italic"><svg width="24" height="24" x="0px" y="0px" viewBox="-70 -70 450 450" xml:space="preserve">
+                <polygon
+                  points="106.667,0 106.667,64 153.92,64 80.747,234.667 21.333,234.667 21.333,298.667 192,298.667 192,234.667 144.747,234.667 217.92,64 277.333,64 277.333,0  ">
+                </polygon>
+              </svg></button>
+            <button id="underline"><svg width="24" height="24" x="0px" y="0px" viewBox="-70 -70 450 450" xml:space="preserve">
+                <path
+                  d="M192,298.667c70.72,0,128-57.28,128-128V0h-53.333v170.667c0,41.28-33.387,74.667-74.667,74.667 s-74.667-33.387-74.667-74.667V0H64v170.667C64,241.387,121.28,298.667,192,298.667z">
+                </path>
+                <rect x="42.667" y="341.333" width="298.667" height="42.667"></rect>
+              </svg></button>
+            <button id="linethrough"><svg width="24" height="24" x="0px" y="0px" viewBox="-70 -70 450 450" xml:space="preserve">
+                <polygon
+                  points="149.333,160 234.667,160 234.667,96 341.333,96 341.333,32 42.667,32 42.667,96 149.333,96">
+                </polygon>
+                <rect x="149.333" y="288" width="85.333" height="64"></rect>
+                <rect x="0" y="202.667" width="384" height="42.667"></rect>
+              </svg></button>
+            <!-- <button id="subscript"><svg width="24" height="24" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <path
+                  d="M248.257,256l103.986-103.758c2.777-2.771,4.337-6.532,4.337-10.455c0-3.923-1.561-7.684-4.337-10.455l-49.057-48.948 c-5.765-5.753-15.098-5.753-20.863,0L178.29,186.188L74.258,82.384c-5.764-5.751-15.098-5.752-20.863,0L4.337,131.333 C1.561,134.103,0,137.865,0,141.788c0,3.923,1.561,7.684,4.337,10.455L108.324,256L4.337,359.758 C1.561,362.528,0,366.29,0,370.212c0,3.923,1.561,7.684,4.337,10.455l49.057,48.948c5.765,5.753,15.098,5.753,20.863,0 l104.033-103.804l104.032,103.804c2.883,2.876,6.657,4.315,10.432,4.315s7.549-1.438,10.432-4.315l49.056-48.948 c2.777-2.771,4.337-6.532,4.337-10.455c0-3.923-1.561-7.684-4.337-10.455L248.257,256z">
+                </path>
+                <path
+                  d="M497.231,384.331h-44.973l35.508-31.887c14.878-13.36,20.056-34.18,13.192-53.04 c-6.874-18.89-23.565-31.044-43.561-31.717c-0.639-0.021-1.283-0.032-1.928-0.032c-31.171,0-56.531,25.318-56.531,56.439 c0,8.157,6.613,14.769,14.769,14.769c8.156,0,14.769-6.613,14.769-14.769c0-14.833,12.109-26.901,26.992-26.901 c0.316,0,0.631,0.005,0.937,0.016c11.573,0.39,15.78,9.511,16.795,12.297c2.163,5.946,1.942,14.574-5.171,20.962l-64.19,57.643 c-4.552,4.088-6.112,10.56-3.923,16.273c2.189,5.714,7.673,9.486,13.792,9.486h83.523c8.157,0,14.769-6.613,14.769-14.769 S505.387,384.331,497.231,384.331z">
+                </path>
+              </svg></button>
+            <button id="superscript"><svg width="24" height="24" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <path
+                  d="M248.257,259.854l103.986-103.758c2.777-2.771,4.337-6.532,4.337-10.455c0-3.923-1.561-7.684-4.337-10.455l-49.057-48.948 c-5.765-5.753-15.098-5.753-20.863,0L178.29,190.042L74.258,86.238c-5.764-5.751-15.099-5.752-20.863,0L4.337,135.187 C1.561,137.958,0,141.719,0,145.642s1.561,7.684,4.337,10.455l103.986,103.758L4.337,363.612C1.561,366.383,0,370.145,0,374.067 c0,3.922,1.561,7.684,4.337,10.455l49.057,48.948c5.765,5.753,15.098,5.753,20.863,0l104.033-103.804l104.032,103.804 c2.883,2.876,6.657,4.315,10.432,4.315s7.549-1.438,10.432-4.315l49.056-48.948c2.777-2.771,4.337-6.532,4.337-10.455 s-1.561-7.684-4.337-10.455L248.257,259.854z">
+                </path>
+                <path
+                  d="M497.231,190.893h-44.973l35.508-31.887c14.878-13.36,20.056-34.18,13.192-53.04 c-6.874-18.89-23.565-31.044-43.561-31.717c-0.639-0.021-1.283-0.032-1.928-0.032c-31.171,0-56.531,25.318-56.531,56.439 c0,8.157,6.613,14.769,14.769,14.769c8.156,0,14.769-6.613,14.769-14.769c0-14.833,12.109-26.901,26.992-26.901 c0.316,0,0.631,0.005,0.937,0.016c11.573,0.39,15.78,9.511,16.795,12.297c2.163,5.946,1.942,14.574-5.171,20.962l-64.19,57.643 c-4.552,4.088-6.112,10.56-3.923,16.273c2.189,5.714,7.673,9.486,13.792,9.486h83.523c8.157,0,14.769-6.613,14.769-14.769 S505.387,190.893,497.231,190.893z">
+                </path>
+              </svg></button> -->
+          </div>
+        </div>
+        <div class="panel-content " id="tool_position1">
+          <div id="font-family0">
+            <div class="input-container">
+              <label>Font Family</label>
+              <select id="font-family">
+                <option value=""></option>
+                <option value="'Open Sans', sans-serif">Open Sans</option>
+                <option value="'Oswald', sans-serif">Oswald</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Cormorant Garamond', serif">Cormorant Garamond</option>
+                <option value="Impact, Charcoal, sans-serif">Impact</option>
+                <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+                <option value="'Comic Sans MS', 'Comic Sans', cursive, sans-serif">Comic Sans</option>
+                <option value="'Dancing Script', cursive">Dancing Script</option>
+                <option value="'Indie Flower', cursive">Indie Flower</option>
+                <option value="'Amatic SC', cursive">Amatic SC</option>
+                <option value="'Permanent Marker', cursive">Permanent Marker</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="panel-content " id="tool_position2">
+          <div id="font-sizes0">
+            <div class="input-container"><label>Font Size</label>
+              <div class="custom-number-input">
+                <input type="number" min="1" value="20" id="fontSize">
+              </div>
+            </div>
+            <div class="input-container"><label>Line Height</label>
+              <div class="custom-number-input">
+                <input type="number" min="0" max="3" value="1" step="0.1" id="lineHeight">
+              </div>
+            </div>
+            <div class="input-container"><label>Letter Spacing</label>
+              <div class="custom-number-input">
+                <input type="number" min="0" max="2000" step="100" value="0" id="charSpacing">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-content " id="tool_position1">
+          <div id="font-align0">
+            <div class="input-container">
+              <label>文本对齐</label>
+              <select id="text-align">
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+                <option value="justify">Justify</option>
+              </select>
+            </div>
+          </div>
+          <!-- <div class="color">
+            <div class="input-container">
+              <label>字体颜色</label>
+              <input id="color-picker" value="black">
+            </div>
+          </div> -->
         </div>
 
         <div class="panel-content">
@@ -595,55 +696,18 @@
             </button>
 
             <button id="bring-back" title="bring-back">
-              <svg width="24" height="24" enable-background="new 0 0 1000 1000" viewBox="0 0 1e3 1e3" xml:space="preserve">
+              <svg width="24" height="24" enable-background="new 0 0 1000 1000" viewBox="0 0 1e3 1e3"
+                xml:space="preserve">
                 <path d="m990 990h-686v-686h686v686m-980-294v-686h686v680h-98v-582h-490v490h200v98z"></path>
                 <rect x="108.44" y="108" width="490" height="490" fill="#fff"></rect>
               </svg>
             </button>
             <button id="duplicate">
-              <svg width="24" height="24" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
-
-                <path
-                  d="M42.667,256c0-59.52,35.093-110.827,85.547-134.827V75.2C53.653,101.44,0,172.48,0,256s53.653,154.56,128.213,180.8 v-45.973C77.76,366.827,42.667,315.52,42.667,256z">
-                </path>
-                <path
-                  d="M320,64c-105.92,0-192,86.08-192,192s86.08,192,192,192s192-86.08,192-192S425.92,64,320,64z M320,405.333 c-82.347,0-149.333-66.987-149.333-149.333S237.653,106.667,320,106.667S469.333,173.653,469.333,256 S402.347,405.333,320,405.333z">
-                </path>
-                <polygon
-                  points="341.333,170.667 298.667,170.667 298.667,234.667 234.667,234.667 234.667,277.333 298.667,277.333 298.667,341.333 341.333,341.333 341.333,277.333 405.333,277.333 405.333,234.667 341.333,234.667  ">
-                </polygon>
-              </svg></button>
+              <span class="fa fa-copy fa-gray icon-2x" aria-hidden="true"></span>
+            </button>
             <button id="delete">
-              <svg width="24" height="24" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
-                <g>
-                  <g>
-                    <path
-                      d="M425.298,51.358h-91.455V16.696c0-9.22-7.475-16.696-16.696-16.696H194.855c-9.22,0-16.696,7.475-16.696,16.696v34.662 H86.704c-9.22,0-16.696,7.475-16.696,16.696v51.357c0,9.22,7.475,16.696,16.696,16.696h5.072l15.26,359.906 c0.378,8.937,7.735,15.988,16.68,15.988h264.568c8.946,0,16.302-7.051,16.68-15.989l15.259-359.906h5.073 c9.22,0,16.696-7.475,16.696-16.696V68.054C441.994,58.832,434.519,51.358,425.298,51.358z M211.551,33.391h88.9v17.967h-88.9 V33.391z M372.283,478.609H139.719l-14.522-342.502h261.606L372.283,478.609z M408.602,102.715c-15.17,0-296.114,0-305.202,0 V84.749h305.202V102.715z">
-                    </path>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <path
-                      d="M188.835,187.304c-9.22,0-16.696,7.475-16.696,16.696v206.714c0,9.22,7.475,16.696,16.696,16.696 c9.22,0,16.696-7.475,16.696-16.696V204C205.53,194.779,198.055,187.304,188.835,187.304z">
-                    </path>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <path
-                      d="M255.998,187.304c-9.22,0-16.696,7.475-16.696,16.696v206.714c0,9.22,7.474,16.696,16.696,16.696 c9.22,0,16.696-7.475,16.696-16.696V204C272.693,194.779,265.218,187.304,255.998,187.304z">
-                    </path>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <path
-                      d="M323.161,187.304c-9.22,0-16.696,7.475-16.696,16.696v206.714c0,9.22,7.475,16.696,16.696,16.696 s16.696-7.475,16.696-16.696V204C339.857,194.779,332.382,187.304,323.161,187.304z">
-                    </path>
-                  </g>
-                </g>
-              </svg></button>
+              <span class="fa fa-trash-o fa-gray icon-2x" aria-hidden="true"></span>
+            </button>
             <button id="group">
               <svg width="24" height="24" viewBox="0 0 248 249">
                 <g>

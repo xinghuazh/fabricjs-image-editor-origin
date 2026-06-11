@@ -88,7 +88,6 @@
 
     // font section
     (() => {
-
       $(`#rect_x0`).change(function () {
         let x = parseFloat($('#rect_x0').val());
         _self.activeSelection.set("left", x);

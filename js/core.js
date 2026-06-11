@@ -319,6 +319,7 @@
       this.configUndoRedoStack();
 
       this.initializeMainPanel();
+      this.initializeToolbar();
 
       this.initializeShapes();
 
@@ -328,12 +329,11 @@
 
       this.canvas = this.initializeCanvas();
 
-      this.initializeToolbar();
-      // this.initializeLineDrawing(this.canvas);
-      // this.initializePathDrawing(this.canvas);
-      // this.initializeTextBoxDrawing(this.canvas);
-      // this.initializeCircleDrawing(this.canvas);
-      // this.initializeQrDrawing(this.canvas);
+      this.initializeLineDrawing(this.canvas);
+      this.initializePathDrawing(this.canvas);
+      this.initializeTextBoxDrawing(this.canvas);
+      this.initializeCircleDrawing(this.canvas);
+      this.initializeQrDrawing(this.canvas);
       
       this.initializeUpload(this.canvas);
       this.initializeCopyPaste(this.canvas);

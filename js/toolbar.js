@@ -177,7 +177,7 @@
                 left: center.left, 
                 top: center.top,
               });
-            obj.selectable = true;
+            //obj.selectable = true;
             break;
 
           default:
@@ -185,10 +185,10 @@
           }
 
           if (obj !== null) {
-            obj.selectable = false;
-            obj.evented = false;
-            obj.strokeUniform = true;
-            
+            // obj.selectable = false;
+            // obj.evented = false;
+            // obj.strokeUniform = true;
+
             _self.canvas.add(obj);
             _self.canvas.renderAll()
           }
@@ -294,281 +294,281 @@
     }
 
 
-    // zoom
-    (() => {
-      const canvas = _self.canvas;
+    // // zoom
+    // (() => {
+    //   const canvas = _self.canvas;
 
-      // === 工具栏管理 ===
-      let toolbarGroup = null;      // 工具栏组
-      let currentTarget = null;     // 当前选中的对象
+    //   // === 工具栏管理 ===
+    //   let toolbarGroup = null;      // 工具栏组
+    //   let currentTarget = null;     // 当前选中的对象
 
-      // 创建工具栏（使用自定义控件而非文本对象）
-      function createToolbar(target) {
-        // 移除旧工具栏
-        if (toolbarGroup) {
-          canvas.remove(toolbarGroup);
-          toolbarGroup = null;
-        }
+    //   // 创建工具栏（使用自定义控件而非文本对象）
+    //   function createToolbar(target) {
+    //     // 移除旧工具栏
+    //     if (toolbarGroup) {
+    //       canvas.remove(toolbarGroup);
+    //       toolbarGroup = null;
+    //     }
 
-        currentTarget = target;
+    //     currentTarget = target;
 
-        // 获取目标对象的位置
-        const bounds = target.getBoundingRect();
-        const toolWidth = 240;
-        const toolHeight = 44;
-        const toolLeft = bounds.left + (bounds.width - toolWidth) / 2;
-        const toolTop = bounds.top - 55;
+    //     // 获取目标对象的位置
+    //     const bounds = target.getBoundingRect();
+    //     const toolWidth = 240;
+    //     const toolHeight = 44;
+    //     const toolLeft = bounds.left + (bounds.width - toolWidth) / 2;
+    //     const toolTop = bounds.top - 55;
 
-        // 1. 背景面板（可交互区域）
-        const panel = new fabric.Rect({
-          left: toolLeft,
-          top: toolTop,
-          width: toolWidth,
-          height: toolHeight,
-          //fill: 'rgba(0, 0, 0, 0.85)',
-          rx: 8,
-          ry: 8,
-          stroke: '#ddd',
-          strokeWidth: 1,
-          //shadow: '0 2px 8px rgba(0,0,0,0.3)',
-          selectable: false,
-          evented: false,  // 让背景不拦截事件
-          hasControls: false,
-          hasBorders: false
-        });
+    //     // 1. 背景面板（可交互区域）
+    //     const panel = new fabric.Rect({
+    //       left: toolLeft,
+    //       top: toolTop,
+    //       width: toolWidth,
+    //       height: toolHeight,
+    //       //fill: 'rgba(0, 0, 0, 0.85)',
+    //       rx: 8,
+    //       ry: 8,
+    //       stroke: '#ddd',
+    //       strokeWidth: 1,
+    //       //shadow: '0 2px 8px rgba(0,0,0,0.3)',
+    //       selectable: false,
+    //       evented: false,  // 让背景不拦截事件
+    //       hasControls: false,
+    //       hasBorders: false
+    //     });
 
-        // 2. 删除按钮（使用矩形 + 文字组合，使其可点击）
-        const deleteBtn = new fabric.Rect({
-          left: toolLeft + 5,
-          top: toolTop + 5,
-          width: 60,
-          height: 28,
-          fill: '#e74c3c',
-          rx: 4,
-          ry: 4,
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     // 2. 删除按钮（使用矩形 + 文字组合，使其可点击）
+    //     const deleteBtn = new fabric.Rect({
+    //       left: toolLeft + 5,
+    //       top: toolTop + 5,
+    //       width: 60,
+    //       height: 28,
+    //       fill: '#e74c3c',
+    //       rx: 4,
+    //       ry: 4,
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        const deleteText = new fabric.Text('🗑️ 删除', {
-          left: toolLeft + 5,
-          top: toolTop + 5,
-          fontSize: 14,
-          fill: 'white',
-          fontFamily: 'Arial',
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     const deleteText = new fabric.Text('🗑️ 删除', {
+    //       left: toolLeft + 5,
+    //       top: toolTop + 5,
+    //       fontSize: 14,
+    //       fill: 'white',
+    //       fontFamily: 'Arial',
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        // 3. 改色按钮
-        const colorBtn = new fabric.Rect({
-          left: toolLeft + 90,
-          top: toolTop + 8,
-          width: 60,
-          height: 28,
-          fill: '#3498db',
-          rx: 4,
-          ry: 4,
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     // 3. 改色按钮
+    //     const colorBtn = new fabric.Rect({
+    //       left: toolLeft + 90,
+    //       top: toolTop + 8,
+    //       width: 60,
+    //       height: 28,
+    //       fill: '#3498db',
+    //       rx: 4,
+    //       ry: 4,
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        const colorText = new fabric.Text('🎨 改色', {
-          left: toolLeft + 100,
-          top: toolTop + 13,
-          fontSize: 14,
-          fill: 'white',
-          fontFamily: 'Arial',
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     const colorText = new fabric.Text('🎨 改色', {
+    //       left: toolLeft + 100,
+    //       top: toolTop + 13,
+    //       fontSize: 14,
+    //       fill: 'white',
+    //       fontFamily: 'Arial',
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        // 4. 复制按钮
-        const copyBtn = new fabric.Rect({
-          left: toolLeft + 165,
-          top: toolTop + 8,
-          width: 60,
-          height: 28,
-          fill: '#2ecc71',
-          rx: 4,
-          ry: 4,
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     // 4. 复制按钮
+    //     const copyBtn = new fabric.Rect({
+    //       left: toolLeft + 165,
+    //       top: toolTop + 8,
+    //       width: 60,
+    //       height: 28,
+    //       fill: '#2ecc71',
+    //       rx: 4,
+    //       ry: 4,
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        const copyText = new fabric.Text('📋 复制', {
-          left: toolLeft + 175,
-          top: toolTop + 13,
-          fontSize: 14,
-          fill: 'white',
-          fontFamily: 'Arial',
-          selectable: false,
-          hasControls: false,
-          hasBorders: false,
-          hoverCursor: 'pointer'
-        });
+    //     const copyText = new fabric.Text('📋 复制', {
+    //       left: toolLeft + 175,
+    //       top: toolTop + 13,
+    //       fontSize: 14,
+    //       fill: 'white',
+    //       fontFamily: 'Arial',
+    //       selectable: false,
+    //       hasControls: false,
+    //       hasBorders: false,
+    //       hoverCursor: 'pointer'
+    //     });
 
-        // 创建工具栏组
-        toolbarGroup = new fabric.Group(
-          [panel, deleteBtn, deleteText, colorBtn, colorText, copyBtn, copyText],
-          {
-            selectable: false,
-            evented: true,
-            hasControls: false,
-            hasBorders: false,
-            subTargetCheck: true  // 关键！允许检测组内子对象
-          }
-        );
+    //     // 创建工具栏组
+    //     toolbarGroup = new fabric.Group(
+    //       [panel, deleteBtn, deleteText, colorBtn, colorText, copyBtn, copyText],
+    //       {
+    //         selectable: false,
+    //         evented: true,
+    //         hasControls: false,
+    //         hasBorders: false,
+    //         subTargetCheck: true  // 关键！允许检测组内子对象
+    //       }
+    //     );
 
-        // 添加到画布
-        canvas.add(toolbarGroup);
-        canvas.bringToFront(toolbarGroup);
+    //     // 添加到画布
+    //     canvas.add(toolbarGroup);
+    //     canvas.bringToFront(toolbarGroup);
 
-        // 使用 Fabric.js 的鼠标事件系统（正确的方式）
-        canvas.on('mouse:down', onCanvasMouseDown);
+    //     // 使用 Fabric.js 的鼠标事件系统（正确的方式）
+    //     canvas.on('mouse:down', onCanvasMouseDown);
 
-        function onCanvasMouseDown(e) {
-          if (!toolbarGroup) return;
+    //     function onCanvasMouseDown(e) {
+    //       if (!toolbarGroup) return;
 
-          const target = e.target;
-          if (!target) return;
+    //       const target = e.target;
+    //       if (!target) return;
 
-          // 检查是否点击了删除按钮区域
-          if (target === deleteBtn || target === deleteText || target === deleteBtn) {
-            e.e.stopPropagation();
-            if (currentTarget) {
-              canvas.remove(currentTarget);
-              // statusDiv.innerHTML = '✅ 已删除对象';
-              removeToolbar();
-              canvas.discardActiveObject();
-              canvas.renderAll();
-            }
-          }
-          // 检查是否点击了改色按钮
-          else if (target === colorBtn || target === colorText) {
-            e.e.stopPropagation();
-            if (currentTarget) {
-              const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-              currentTarget.set('fill', randomColor);
-              canvas.renderAll();
-              // statusDiv.innerHTML = `🎨 颜色已改为 ${randomColor}`;
-              // setTimeout(() => {
-              //   if (statusDiv) statusDiv.innerHTML = '✅ 就绪，请点击画布上的对象';
-              // }, 1500);
-            }
-          }
-          // 检查是否点击了复制按钮
-          else if (target === copyBtn || target === copyText) {
-            e.e.stopPropagation();
-            if (currentTarget) {
-              cloneObject(currentTarget);
-              // statusDiv.innerHTML = '📋 对象已复制';
-              // setTimeout(() => {
-              //   if (statusDiv) statusDiv.innerHTML = '✅ 就绪，请点击画布上的对象';
-              // }, 1500);
-            }
-          }
-        }
+    //       // 检查是否点击了删除按钮区域
+    //       if (target === deleteBtn || target === deleteText || target === deleteBtn) {
+    //         e.e.stopPropagation();
+    //         if (currentTarget) {
+    //           canvas.remove(currentTarget);
+    //           // statusDiv.innerHTML = '✅ 已删除对象';
+    //           removeToolbar();
+    //           canvas.discardActiveObject();
+    //           canvas.renderAll();
+    //         }
+    //       }
+    //       // 检查是否点击了改色按钮
+    //       else if (target === colorBtn || target === colorText) {
+    //         e.e.stopPropagation();
+    //         if (currentTarget) {
+    //           const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    //           currentTarget.set('fill', randomColor);
+    //           canvas.renderAll();
+    //           // statusDiv.innerHTML = `🎨 颜色已改为 ${randomColor}`;
+    //           // setTimeout(() => {
+    //           //   if (statusDiv) statusDiv.innerHTML = '✅ 就绪，请点击画布上的对象';
+    //           // }, 1500);
+    //         }
+    //       }
+    //       // 检查是否点击了复制按钮
+    //       else if (target === copyBtn || target === copyText) {
+    //         e.e.stopPropagation();
+    //         if (currentTarget) {
+    //           cloneObject(currentTarget);
+    //           // statusDiv.innerHTML = '📋 对象已复制';
+    //           // setTimeout(() => {
+    //           //   if (statusDiv) statusDiv.innerHTML = '✅ 就绪，请点击画布上的对象';
+    //           // }, 1500);
+    //         }
+    //       }
+    //     }
 
-        canvas.renderAll();
-      }
+    //     canvas.renderAll();
+    //   }
 
-      // 复制对象
-      function cloneObject(original) {
-        return new Promise((resolve) => {
-          original.clone((cloned) => {
-            cloned.set({
-              left: original.left + 30,
-              top: original.top + 30,
-              evented: true
-            });
-            canvas.add(cloned);
-            canvas.setActiveObject(cloned);
-            canvas.renderAll();
+    //   // 复制对象
+    //   function cloneObject(original) {
+    //     return new Promise((resolve) => {
+    //       original.clone((cloned) => {
+    //         cloned.set({
+    //           left: original.left + 30,
+    //           top: original.top + 30,
+    //           evented: true
+    //         });
+    //         canvas.add(cloned);
+    //         canvas.setActiveObject(cloned);
+    //         canvas.renderAll();
 
-            // 为新复制的对象创建工具栏
-            if (toolbarGroup) {
-              canvas.remove(toolbarGroup);
-              toolbarGroup = null;
-            }
-            createToolbar(cloned);
-            resolve(cloned);
-          });
-        });
-      }
+    //         // 为新复制的对象创建工具栏
+    //         if (toolbarGroup) {
+    //           canvas.remove(toolbarGroup);
+    //           toolbarGroup = null;
+    //         }
+    //         createToolbar(cloned);
+    //         resolve(cloned);
+    //       });
+    //     });
+    //   }
 
-      // 移除工具栏
-      function removeToolbar() {
-        if (toolbarGroup) {
-          canvas.remove(toolbarGroup);
-          toolbarGroup = null;
-        }
-        //canvas.off('mouse:down', onCanvasMouseDown);
-        currentTarget = null;
-      }
+    //   // 移除工具栏
+    //   function removeToolbar() {
+    //     if (toolbarGroup) {
+    //       canvas.remove(toolbarGroup);
+    //       toolbarGroup = null;
+    //     }
+    //     //canvas.off('mouse:down', onCanvasMouseDown);
+    //     currentTarget = null;
+    //   }
 
-      // 更新工具栏位置（当对象移动时）
-      function updateToolbarPosition(target) {
-        if (!toolbarGroup || !target) return;
+    //   // 更新工具栏位置（当对象移动时）
+    //   function updateToolbarPosition(target) {
+    //     if (!toolbarGroup || !target) return;
 
-        const bounds = target.getBoundingRect();
-        const toolWidth = 240;
-        const toolLeft = bounds.left + (bounds.width - toolWidth) / 2;
-        const toolTop = bounds.top - 55;
+    //     const bounds = target.getBoundingRect();
+    //     const toolWidth = 240;
+    //     const toolLeft = bounds.left + (bounds.width - toolWidth) / 2;
+    //     const toolTop = bounds.top - 55;
 
-        // 重新创建工具栏（简单起见，重新创建）
-        // 注意：这里简化处理，实际项目中可以只更新位置
-        createToolbar(target);
-      }
+    //     // 重新创建工具栏（简单起见，重新创建）
+    //     // 注意：这里简化处理，实际项目中可以只更新位置
+    //     createToolbar(target);
+    //   }
 
-      // === 监听选中事件（Fabric.js 标准事件）===
-      canvas.on('selection:created', (e) => {
-        if (e.selected && e.selected[0]) {
-          createToolbar(e.selected[0]);
-          // statusDiv.innerHTML = `✅ 已选中: ${e.selected[0].name || e.selected[0].type}`;
-        }
-      });
+    //   // === 监听选中事件（Fabric.js 标准事件）===
+    //   canvas.on('selection:created', (e) => {
+    //     if (e.selected && e.selected[0]) {
+    //       createToolbar(e.selected[0]);
+    //       // statusDiv.innerHTML = `✅ 已选中: ${e.selected[0].name || e.selected[0].type}`;
+    //     }
+    //   });
 
-      canvas.on('selection:updated', (e) => {
-        if (e.selected && e.selected[0]) {
-          // 避免重复创建
-          if (currentTarget !== e.selected[0]) {
-            createToolbar(e.selected[0]);
-            // statusDiv.innerHTML = `✅ 已选中: ${e.selected[0].name || e.selected[0].type}`;
-          }
-        }
-      });
+    //   canvas.on('selection:updated', (e) => {
+    //     if (e.selected && e.selected[0]) {
+    //       // 避免重复创建
+    //       if (currentTarget !== e.selected[0]) {
+    //         createToolbar(e.selected[0]);
+    //         // statusDiv.innerHTML = `✅ 已选中: ${e.selected[0].name || e.selected[0].type}`;
+    //       }
+    //     }
+    //   });
 
-      canvas.on('selection:cleared', () => {
-        removeToolbar();
-        // statusDiv.innerHTML = '✅ 已取消选中';
-      });
+    //   canvas.on('selection:cleared', () => {
+    //     removeToolbar();
+    //     // statusDiv.innerHTML = '✅ 已取消选中';
+    //   });
 
-      // 对象移动时更新工具栏
-      canvas.on('object:moving', (e) => {
-        if (toolbarGroup && currentTarget === e.target) {
-          updateToolbarPosition(e.target);
-        }
-      });
+    //   // 对象移动时更新工具栏
+    //   canvas.on('object:moving', (e) => {
+    //     if (toolbarGroup && currentTarget === e.target) {
+    //       updateToolbarPosition(e.target);
+    //     }
+    //   });
 
-      // 对象缩放时也更新
-      canvas.on('object:scaling', (e) => {
-        if (toolbarGroup && currentTarget === e.target) {
-          updateToolbarPosition(e.target);
-        }
-      });
+    //   // 对象缩放时也更新
+    //   canvas.on('object:scaling', (e) => {
+    //     if (toolbarGroup && currentTarget === e.target) {
+    //       updateToolbarPosition(e.target);
+    //     }
+    //   });
 
-    })();
+    // })();
 
   }
 

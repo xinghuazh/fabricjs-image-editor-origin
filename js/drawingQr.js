@@ -235,4 +235,51 @@
     return qrCode;
   };
 
+  //---------------------------------------------------------------------------
+  var qrDrawing = function (fabricCanvas) {
+    let isDrawing = false;
+    let _obj, pointer, pointerPoints;
+
+    fabricCanvas.on('mouse:down', (o) => {
+      if (!fabricCanvas.isDrawingQrMode) return;
+
+      isDrawing = true;
+      pointer = fabricCanvas.getPointer(o.e);
+      pointerPoints = [pointer.x, pointer.y, pointer.x, pointer.y];
+
+      _obj = new fabric.QRCode(null, {},
+        {
+          left: pointer.x,
+          top: pointer.y,
+        });
+      _obj.selectable = false;
+      _obj.evented = false;
+      _obj.strokeUniform = true;
+      fabricCanvas.add(_obj);
+    });
+
+    fabricCanvas.on('mouse:move', (o) => {
+      if (!isDrawing) return
+
+      pointer = fabricCanvas.getPointer(o.e)
+
+      _obj.set({
+        x2: pointer.x,
+        y2: pointer.y
+      })
+
+      fabricCanvas.renderAll()
+
+    });
+
+    fabricCanvas.on('mouse:up', () => {
+      if (!isDrawing) return;
+
+      _obj.setCoords();
+      isDrawing = false;
+      fabricCanvas.trigger('object:modified');
+    });
+  }
+
+  window.ImageEditor.prototype.initializeQrDrawing = qrDrawing;
 })()

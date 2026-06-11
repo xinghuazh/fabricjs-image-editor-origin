@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="css/spectrum.css" type="text/css">
   <link rel="stylesheet" href="css/grapick.min.css" type="text/css">
 
-  <script src="./lib/jquery-3.5.1.min.js"></script>
+  <script src="./js/jquery-3.5.1.min.js"></script>
   <script>
     jQuery.fn.outerHTML = function () {
       return jQuery('<div />').append(this.eq(0).clone()).html();
@@ -45,35 +45,148 @@
       return this.toString().split(".")[1].length || 0;
     }
   </script>
-  <script src="./lib/fabric.js"></script>
-  <script src="./lib/spectrum.js"></script>
-  <script src="./lib/grapick.min.js"></script>
-  <script src="./lib/undo-redo-stack.js"></script>
 
-  <script src="./lib/core.js"></script>
-  <script src="./lib/toolbar.js"></script>
-  <script src="./lib/canvas.js"></script>
-  <script src="./lib/shapes.js"></script>
+  <script src="./fabric/src/HEADER.js"></script>
+  <script src="./fabric/src/globalFabric.js"></script>
+  <script src="./fabric/lib/event.js"></script>
 
-  <script src="./lib/freeDrawSettings.js"></script>
-  <script src="./lib/canvasSettings.js"></script>
-  <script src="./lib/selectionSettings.js"></script>
+  <script src="./fabric/src/mixins/observable.mixin.js"></script>
+  <script src="./fabric/src/mixins/collection.mixin.js"></script>
+  <script src="./fabric/src/mixins/shared_methods.mixin.js"></script>
+  <script src="./fabric/src/util/misc.js"></script>
+  <script src="./fabric/src/util/named_accessors.mixin.js"></script>
+  <script src="./fabric/src/util/arc.js"></script>
+  <script src="./fabric/src/util/lang_array.js"></script>
+  <script src="./fabric/src/util/lang_object.js"></script>
+  <script src="./fabric/src/util/lang_string.js"></script>
+  <script src="./fabric/src/util/lang_class.js"></script>
+  <script src="./fabric/src/util/dom_event.js"></script>
+  <script src="./fabric/src/util/dom_style.js"></script>
+  <script src="./fabric/src/util/dom_misc.js"></script>
+  <script src="./fabric/src/util/dom_request.js"></script>
 
-  <script src="./lib/drawingLine.js"></script>
-  <script src="./lib/drawingPath.js"></script>
-  <script src="./lib/drawingText.js"></script>
-  <script src="./lib/drawingCircle.js"></script>
-  <script src="./lib/drawingQr.js"></script>
+  <script src="./fabric/src/log.js"></script>
 
-  <script src="./lib/ruler.js"></script>
-  <script src="./lib/tip.js"></script>
-  <script src="./lib/upload.js"></script>
-  <script src="./lib/copyPaste.js"></script>
+  <script src="./fabric/src/util/animate.js"></script>
+  <script src="./fabric/src/util/animate_color.js"></script>
+  <!-- <script src="./fabric/src/util/animate.js"></script> -->
+  <script src="./fabric/src/util/anim_ease.js"></script>
 
-  <script src="./lib/utils.js"></script>
-  <script src="./lib/zoom.js"></script>
-  <script src="./lib/saveInBrowser.js"></script>
-  <script src="./lib/aligning_guidelines.js"></script>
+  <script src="./fabric/src/parser.js"></script>
+  <script src="./fabric/src/elements_parser.js"></script>
+
+  <script src="./fabric/src/point.class.js"></script>
+  <script src="./fabric/src/intersection.class.js"></script>
+  <script src="./fabric/src/color.class.js"></script>
+
+  <script src="./fabric/src/gradient.class.js"></script>
+  <script src="./fabric/src/pattern.class.js"></script>
+  <script src="./fabric/src/shadow.class.js"></script>
+
+  <script src="./fabric/src/static_canvas.class.js"></script>
+
+  <script src="./fabric/src/brushes/base_brush.class.js"></script>
+
+  <script src="./fabric/src/brushes/pencil_brush.class.js"></script>
+  <script src="./fabric/src/brushes/circle_brush.class.js"></script>
+  <script src="./fabric/src/brushes/spray_brush.class.js"></script>
+  <script src="./fabric/src/brushes/pattern_brush.class.js"></script>
+
+  <script src="./fabric/src/canvas.class.js"></script>
+  <script src="./fabric/src/mixins/canvas_events.mixin.js"></script>
+  <script src="./fabric/src/mixins/canvas_grouping.mixin.js"></script>
+
+  <script src="./fabric/src/mixins/canvas_dataurl_exporter.mixin.js"></script>
+
+  <script src="./fabric/src/mixins/canvas_serialization.mixin.js"></script>
+  <script src="./fabric/src/mixins/canvas_gestures.mixin.js"></script>
+
+  <script src="./fabric/src/shapes/object.class.js"></script>
+  <script src="./fabric/src/mixins/object_origin.mixin.js"></script>
+  <script src="./fabric/src/mixins/object_geometry.mixin.js"></script>
+  <script src="./fabric/src/mixins/object_stacking.mixin.js"></script>
+  <script src="./fabric/src/mixins/object.svg_export.js"></script>
+  <script src="./fabric/src/mixins/stateful.mixin.js"></script>
+
+  <script src="./fabric/src/mixins/object_interactivity.mixin.js"></script>
+
+  <script src="./fabric/src/mixins/animation.mixin.js"></script>
+
+  <script src="./fabric/src/shapes/line.class.js"></script>
+  <script src="./fabric/src/shapes/circle.class.js"></script>
+  <script src="./fabric/src/shapes/triangle.class.js"></script>
+  <script src="./fabric/src/shapes/ellipse.class.js"></script>
+  <script src="./fabric/src/shapes/rect.class.js"></script>
+  <script src="./fabric/src/shapes/polyline.class.js"></script>
+  <script src="./fabric/src/shapes/polygon.class.js"></script>
+  <script src="./fabric/src/shapes/path.class.js"></script>
+  <script src="./fabric/src/shapes/group.class.js"></script>
+  <script src="./fabric/src/shapes/active_selection.class.js"></script>
+  <script src="./fabric/src/shapes/image.class.js"></script>
+
+  <script src="./fabric/src/mixins/object_straightening.mixin.js"></script>
+  <script src="./fabric/src/filters/webgl_backend.class.js"></script>
+  <script src="./fabric/src/filters/2d_backend.class.js"></script>
+  <script src="./fabric/src/filters/base_filter.class.js"></script>
+  <script src="./fabric/src/filters/colormatrix_filter.class.js"></script>
+  <script src="./fabric/src/filters/brightness_filter.class.js"></script>
+  <script src="./fabric/src/filters/convolute_filter.class.js"></script>
+  <script src="./fabric/src/filters/grayscale_filter.class.js"></script>
+  <script src="./fabric/src/filters/invert_filter.class.js"></script>
+  <script src="./fabric/src/filters/noise_filter.class.js"></script>
+  <script src="./fabric/src/filters/pixelate_filter.class.js"></script>
+  <script src="./fabric/src/filters/removecolor_filter.class.js"></script>
+  <script src="./fabric/src/filters/filter_generator.js"></script>
+  <script src="./fabric/src/filters/blendcolor_filter.class.js"></script>
+  <script src="./fabric/src/filters/blendimage_filter.class.js"></script>
+  <script src="./fabric/src/filters/resize_filter.class.js"></script>
+  <script src="./fabric/src/filters/contrast_filter.class.js"></script>
+  <script src="./fabric/src/filters/saturate_filter.class.js"></script>
+  <script src="./fabric/src/filters/blur_filter.class.js"></script>
+  <script src="./fabric/src/filters/gamma_filter.class.js"></script>
+  <script src="./fabric/src/filters/composed_filter.class.js"></script>
+  <script src="./fabric/src/filters/hue_rotation.class.js"></script>
+
+  <script src="./fabric/src/shapes/text.class.js"></script>
+  <script src="./fabric/src/mixins/text_style.mixin.js"></script>
+
+  <script src="./fabric/src/shapes/itext.class.js"></script>
+  <script src="./fabric/src/mixins/itext_behavior.mixin.js"></script>
+  <script src="./fabric/src/mixins/itext_click_behavior.mixin.js"></script>
+  <script src="./fabric/src/mixins/itext_key_behavior.mixin.js"></script>
+  <script src="./fabric/src/mixins/itext.svg_export.js"></script>
+
+  <script src="./fabric/src/shapes/textbox.class.js"></script>
+  <script src="./fabric/lib/aligning_guidelines.js"></script>
+<!-- 
+  <script src="./js/fabric.js"></script> -->
+  <script src="./js/spectrum.js"></script>
+  <script src="./js/grapick.min.js"></script>
+  <script src="./js/undo-redo-stack.js"></script>
+
+  <script src="./js/core.js"></script>
+  <script src="./js/toolbar.js"></script>
+  <script src="./js/canvas.js"></script>
+  <script src="./js/shapes.js"></script>
+
+  <script src="./js/freeDrawSettings.js"></script>
+  <script src="./js/canvasSettings.js"></script>
+  <script src="./js/selectionSettings.js"></script>
+
+  <script src="./js/drawingLine.js"></script>
+  <script src="./js/drawingPath.js"></script>
+  <script src="./js/drawingText.js"></script>
+  <script src="./js/drawingCircle.js"></script>
+  <script src="./js/drawingQr.js"></script>
+
+  <script src="./js/ruler.js"></script>
+  <script src="./js/tip.js"></script>
+  <script src="./js/upload.js"></script>
+  <script src="./js/copyPaste.js"></script>
+
+  <script src="./js/utils.js"></script>
+  <script src="./js/zoom.js"></script>
+  <script src="./js/saveInBrowser.js"></script>
 
 </head>
 

@@ -179,9 +179,9 @@
   cursor: -moz-grabbing;
 } */
 
-.draginput input:invalid {
+/* .draginput input:invalid {
   color: var(--a7);
-}
+} */
 
 .draginput.error {
   background-color: var(--a7);

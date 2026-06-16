@@ -730,9 +730,11 @@
     // 从浏览器加载数据
     const savedCanvas = saveInBrowser.load('canvasEditor');
     if (savedCanvas) {
-      fabricCanvas.loadFromJSON(savedCanvas, fabricCanvas.renderAll.bind(fabricCanvas));
+      try {
+        fabricCanvas.loadFromJSON(savedCanvas, fabricCanvas.renderAll.bind(fabricCanvas));
+      } catch (_) {
+      }
     }
-
 
     // 添加测试对象
     const rect1 = new fabric.Rect({

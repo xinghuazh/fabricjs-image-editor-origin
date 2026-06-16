@@ -323,17 +323,17 @@
 
       this.initializeShapes();
 
-      this.initializeFreeDrawSettings();
-      this.initializeCanvasSettingPanel();
+      //this.initializeFreeDrawSettings();
+      //this.initializeCanvasSettingPanel();
       this.initializeSelectionSettings();
 
       this.canvas = this.initializeCanvas();
 
-      this.initializeLineDrawing(this.canvas);
-      this.initializePathDrawing(this.canvas);
-      this.initializeTextBoxDrawing(this.canvas);
-      this.initializeCircleDrawing(this.canvas);
-      this.initializeQrDrawing(this.canvas);
+      // this.initializeLineDrawing(this.canvas);
+      // this.initializePathDrawing(this.canvas);
+      // this.initializeTextBoxDrawing(this.canvas);
+      // this.initializeCircleDrawing(this.canvas);
+      //this.initializeQrDrawing(this.canvas);
       
       this.initializeUpload(this.canvas);
       this.initializeCopyPaste(this.canvas);
@@ -342,7 +342,7 @@
 
       this.initializeZoomEvents();
 
-      this.updateCanvasSettings();
+      //this.updateCanvasSettings();
       this.extendHideShowToolPanel();
       this.extendNumberInput();
     }

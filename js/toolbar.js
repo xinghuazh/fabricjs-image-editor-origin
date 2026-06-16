@@ -34,8 +34,8 @@
     title: 'QRCode',
     icon: `<span class="fa fa-qrcode fa-gray icon-2x" aria-hidden="true"></span>`
   }, {
-    name: 'shapes',
-    title: 'Shapes',
+    name: 'pattern',
+    title: 'pattern',
     icon: `<svg width="24" height="24" viewBox="0 0 490.927 490.927" ><path d="M336.738,178.502c-12.645,0-24.852,1.693-36.627,4.582L202.57,11.786c-5.869-10.321-22.84-10.321-28.709,0L2.163,313.311 c-2.906,5.105-2.889,11.385,0.078,16.466c2.953,5.088,8.389,8.216,14.275,8.216l166.314,0.009 c2.818,82.551,70.688,148.88,153.906,148.88c85.012,0,154.19-69.167,154.19-154.186S421.749,178.502,336.738,178.502z  M44.917,304.964l143.299-251.63L331.515,304.97L44.917,304.964z"></path></svg>`
   }, {
     name: 'draw',
@@ -56,27 +56,27 @@
   }]
 
   const defaultExtendedButtons = [
-    //   {
-    //   name: 'undo',
-    //   title: 'Undo',
-    //   icon: `<svg width="24" height="24" viewBox="0 0 512.011 512.011" ><path d="M511.136,286.255C502.08,194.863,419.84,128.015,328,128.015H192v-80c0-6.144-3.52-11.744-9.056-14.432 c-5.568-2.656-12.128-1.952-16.928,1.92l-160,128C2.208,166.575,0,171.151,0,176.015s2.208,9.44,5.984,12.512l160,128 c2.912,2.304,6.464,3.488,10.016,3.488c2.368,0,4.736-0.512,6.944-1.568c5.536-2.688,9.056-8.288,9.056-14.432v-80h139.392 c41.856,0,80,30.08,84.192,71.712c4.832,47.872-32.704,88.288-79.584,88.288H208c-8.832,0-16,7.168-16,16v64 c0,8.832,7.168,16,16,16h128C438.816,480.015,521.472,391.151,511.136,286.255z"></path></svg>`
-    // }, {
-    //   name: 'redo',
-    //   title: 'Redo',
-    //   icon: `<svg width="24" height="24" viewBox="0 0 512.011 512.011" style="transform: scale(-1, 1);"><path d="M511.136,286.255C502.08,194.863,419.84,128.015,328,128.015H192v-80c0-6.144-3.52-11.744-9.056-14.432             c-5.568-2.656-12.128-1.952-16.928,1.92l-160,128C2.208,166.575,0,171.151,0,176.015s2.208,9.44,5.984,12.512l160,128             c2.912,2.304,6.464,3.488,10.016,3.488c2.368,0,4.736-0.512,6.944-1.568c5.536-2.688,9.056-8.288,9.056-14.432v-80h139.392             c41.856,0,80,30.08,84.192,71.712c4.832,47.872-32.704,88.288-79.584,88.288H208c-8.832,0-16,7.168-16,16v64             c0,8.832,7.168,16,16,16h128C438.816,480.015,521.472,391.151,511.136,286.255z"></path></svg>`
-    // }, {
-    //   name: 'save',
-    //   title: 'Save',
-    //   icon: `<svg width="24" height="24" viewBox="0 0 490.434 490.433" ><path d="M472.003,58.36l-13.132-11.282c-21.798-18.732-54.554-16.644-73.799,4.697L165.39,295.359l-66.312-57.112 c-21.775-18.753-54.536-16.707-73.804,4.611l-11.611,12.848c-9.416,10.413-14.305,24.149-13.595,38.18 c0.717,14.023,6.973,27.188,17.402,36.6l121.553,111.311c10.524,9.883,24.628,15.037,39.044,14.272 c14.416-0.763,27.894-7.386,37.311-18.329l262.245-304.71c9.162-10.646,13.717-24.494,12.661-38.496 C489.229,80.522,482.655,67.512,472.003,58.36z"></path></svg>`
-    // }, {
-    //   name: 'download',
-    //   title: 'Download',
-    //   icon: `<svg width="24" height="24" viewBox="0 0 512.171 512.171" ><path d="M479.046,283.925c-1.664-3.989-5.547-6.592-9.856-6.592H352.305V10.667C352.305,4.779,347.526,0,341.638,0H170.971 c-5.888,0-10.667,4.779-10.667,10.667v266.667H42.971c-4.309,0-8.192,2.603-9.856,6.571c-1.643,3.989-0.747,8.576,2.304,11.627 l212.8,213.504c2.005,2.005,4.715,3.136,7.552,3.136s5.547-1.131,7.552-3.115l213.419-213.504 C479.793,292.501,480.71,287.915,479.046,283.925z"></path></svg>`
-    // }, {
-    //   name: 'clear',
-    //   title: 'Clear',
-    //   icon: `<svg width="24" height="24" viewBox="0 0 365.696 365.696"><path d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0"></path></svg>`
-    // },
+      {
+      name: 'undo',
+      title: 'Undo',
+      icon: `<svg width="24" height="24" viewBox="0 0 512.011 512.011" ><path d="M511.136,286.255C502.08,194.863,419.84,128.015,328,128.015H192v-80c0-6.144-3.52-11.744-9.056-14.432 c-5.568-2.656-12.128-1.952-16.928,1.92l-160,128C2.208,166.575,0,171.151,0,176.015s2.208,9.44,5.984,12.512l160,128 c2.912,2.304,6.464,3.488,10.016,3.488c2.368,0,4.736-0.512,6.944-1.568c5.536-2.688,9.056-8.288,9.056-14.432v-80h139.392 c41.856,0,80,30.08,84.192,71.712c4.832,47.872-32.704,88.288-79.584,88.288H208c-8.832,0-16,7.168-16,16v64 c0,8.832,7.168,16,16,16h128C438.816,480.015,521.472,391.151,511.136,286.255z"></path></svg>`
+    }, {
+      name: 'redo',
+      title: 'Redo',
+      icon: `<svg width="24" height="24" viewBox="0 0 512.011 512.011" style="transform: scale(-1, 1);"><path d="M511.136,286.255C502.08,194.863,419.84,128.015,328,128.015H192v-80c0-6.144-3.52-11.744-9.056-14.432             c-5.568-2.656-12.128-1.952-16.928,1.92l-160,128C2.208,166.575,0,171.151,0,176.015s2.208,9.44,5.984,12.512l160,128             c2.912,2.304,6.464,3.488,10.016,3.488c2.368,0,4.736-0.512,6.944-1.568c5.536-2.688,9.056-8.288,9.056-14.432v-80h139.392             c41.856,0,80,30.08,84.192,71.712c4.832,47.872-32.704,88.288-79.584,88.288H208c-8.832,0-16,7.168-16,16v64             c0,8.832,7.168,16,16,16h128C438.816,480.015,521.472,391.151,511.136,286.255z"></path></svg>`
+    }, {
+      name: 'save',
+      title: 'Save',
+      icon: `<svg width="24" height="24" viewBox="0 0 490.434 490.433" ><path d="M472.003,58.36l-13.132-11.282c-21.798-18.732-54.554-16.644-73.799,4.697L165.39,295.359l-66.312-57.112 c-21.775-18.753-54.536-16.707-73.804,4.611l-11.611,12.848c-9.416,10.413-14.305,24.149-13.595,38.18 c0.717,14.023,6.973,27.188,17.402,36.6l121.553,111.311c10.524,9.883,24.628,15.037,39.044,14.272 c14.416-0.763,27.894-7.386,37.311-18.329l262.245-304.71c9.162-10.646,13.717-24.494,12.661-38.496 C489.229,80.522,482.655,67.512,472.003,58.36z"></path></svg>`
+    }, {
+      name: 'download',
+      title: 'Download',
+      icon: `<svg width="24" height="24" viewBox="0 0 512.171 512.171" ><path d="M479.046,283.925c-1.664-3.989-5.547-6.592-9.856-6.592H352.305V10.667C352.305,4.779,347.526,0,341.638,0H170.971 c-5.888,0-10.667,4.779-10.667,10.667v266.667H42.971c-4.309,0-8.192,2.603-9.856,6.571c-1.643,3.989-0.747,8.576,2.304,11.627 l212.8,213.504c2.005,2.005,4.715,3.136,7.552,3.136s5.547-1.131,7.552-3.115l213.419-213.504 C479.793,292.501,480.71,287.915,479.046,283.925z"></path></svg>`
+    }, {
+      name: 'clear',
+      title: 'Clear',
+      icon: `<svg width="24" height="24" viewBox="0 0 365.696 365.696"><path d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0"></path></svg>`
+    },
   ]
 
   var toolbar = function () {
@@ -90,6 +90,21 @@
     try {
       // main buttons
       (() => {
+        var setDimension = () => {
+          try {
+            let width = $(`#canvas_width`).val();
+            let height = $(`#canvas_height`).val();
+            _self.canvas.setWidth(width);
+            _self.canvas.originalW = width;
+            _self.canvas.setHeight(height);
+            _self.canvas.originalH = height;
+            _self.canvas.renderAll();
+            _self.canvas.trigger('object:modified');
+          } catch (_) {}
+        };
+        $(`#canvas_width`).change(setDimension);
+        $(`#canvas_height`).change(setDimension);
+
         // buttons.forEach(item => {
         //   $(`${this.containerSelector} #toolbar .main-buttons`).append(`<button id="${item.name}">${item.icon}</button>`);
         // })
@@ -125,61 +140,107 @@
           const center = _self.canvas.getCenter();
           console.log("id: ", id);
           console.log("center: ", center);
+          var randOff = Math.random() * 150;
+
           switch (id) {
           case 'line':
-            var pointerPoints = [center.left, center.top, center.left + 100, center.top + 100];
+            var pointerPoints = [center.left + randOff, 
+              center.top + randOff, 
+              center.left + randOff + 100, 
+              center.top + randOff + 100];
             obj = new fabric.Line(pointerPoints, {
               strokeWidth: 2,
               stroke: '#000000'
             });
-            // obj.selectable = false;
-            // obj.evented = false;
-            // obj.strokeUniform = true;
+            obj.capacity = capacityMask.CAPS_NOROTATE | 
+              capacityMask.CAPS_NOMIRROR/* | CAPS_FILL*/;
             break;
 
           case 'rect':
             obj = new fabric.Rect({
-              left: center.left, 
-              top: center.top,
+              left: center.left + randOff, 
+              top: center.top + randOff,
               width: 80, 
               height: 80,
               fill: 'transparent',
               strokeWidth: 1,
               stroke: '#000000'
             });
+            obj.capacity = capacityMask.CAPS_BORDER | 
+              capacityMask.CAPS_FILL;
             break;
 
           case 'circle':
             obj = new fabric.Circle({
-              left: center.left, 
-              top: center.top,
+              left: center.left + randOff, 
+              top: center.top + randOff,
               radius: 50,
               fill: 'transparent',
               strokeWidth: 1,
               stroke: '#000000',
             });
+            obj.capacity = capacityMask.CAPS_FILL;
             break;
 
           case 'text':
             obj = new fabric.Text('test123456789', {
-              left: center.left, 
-              top: center.top,
+              left: center.left + randOff, 
+              top: center.top + randOff,
               fontSize: 40,
               fontColor: 'black',
               fill: 'black',
               fontFamily: 'Arial',
             });
+            obj.capacity = capacityMask.CAPS_BORDER | 
+              capacityMask.CAPS_FILL | 
+              capacityMask.CAPS_TEXT | 
+              capacityMask.CAPS_FONT | 
+              capacityMask.CAPS_VARIABLE;
             break;
 
           case 'QRCode':
-            obj = new fabric.QRCode(null, {},
+            obj = new fabric.QRCode(null, 
+              {}, // qrOptions
               {
-                left: center.left, 
-                top: center.top,
+                left: center.left + randOff, 
+                top: center.top + randOff,
               });
-            //obj.selectable = true;
+            obj.capacity = capacityMask.CAPS_BAR | 
+              capacityMask.CAPS_TEXT | 
+              capacityMask.CAPS_FONT | 
+              capacityMask.CAPS_VARIABLE; // 默认支持格式
             break;
 
+          case 'image':
+            obj = new fabric.Text('test123456789', {
+              left: center.left + randOff, 
+              top: center.top + randOff,
+              fontSize: 40,
+              fontColor: 'black',
+              fill: 'black',
+              fontFamily: 'Arial',
+            });
+            obj.capacity = capacityMask.CAPS_BORDER | 
+              capacityMask.CAPS_NOMIRROR | 
+              capacityMask.CAPS_VARIABLE;
+            break;
+
+          case 'pattern':
+            obj = new fabric.PatternShape({
+              left: 0, 
+              top: 0,
+              fontSize: 40,
+              fontColor: 'black',
+              fill: 'black',
+              fontFamily: 'Arial',
+            });
+            obj.capacity = capacityMask.CAPS_NOROTATE | 
+              capacityMask.CAPS_NOMIRROR;
+            break;
+
+          case 'upload':
+            _self.openDragDropPanel();
+            break;
           default:
             break;
           }
@@ -190,10 +251,21 @@
             // obj.strokeUniform = true;
 
             _self.canvas.add(obj);
-            _self.canvas.renderAll()
+            _self.canvas.renderAll();
           }
+          deseclectAll(_self.canvas);
 
         })
+
+        function deseclectAll(canvas) {
+          console.log("deseclectAll");
+          canvas.defaultCursor = 'default';
+          canvas.selection = true;
+          canvas.forEachObject(o => {
+            o.selectable = true;
+            o.evented = true;
+          })
+        }
       })();
 
       // zoom
